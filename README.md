@@ -1,2 +1,2 @@
-# My Sum FullStack [Visit My Sum Server](https://my-sum-server.vercel.app/)
+# My Sum FullStack [Live](https://my-sum-server.vercel.app/)
 
