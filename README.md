@@ -4,7 +4,10 @@
 
 
 ## Glimpse
-![Alt Text](https://github.com/knilesh9/my-sum-server/raw/main/media/firefox_cUHUlI4I4d.gif)
+![Demo v1](https://github.com/knilesh9/my-sum-server/raw/main/media/firefox_cUHUlI4I4d.gif)
+
+## Demo v2
+![Demo v2](https://github.com/knilesh9/my-sum-server/blob/main/media/v2.gif)
 
 The backend is over at Render : https://sum-server-34x5.onrender.com/  
 You can perform a request like: https://sum-server-34x5.onrender.com/sum?a=34&b=34 and this will return the sum in response.
