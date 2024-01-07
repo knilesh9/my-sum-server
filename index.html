@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum FrontEnd</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        body{
+            background-image: url('./jellyfish.jpg');
+            background-size: cover;
+        }
+        .form {
+
+            position: absolute;
+            text-align: center;
+            
+            top: 50%;
+            left: 50%;
+            height: 30vw;
+            width: 50vw;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(12px); /* Adjust the blur radius as needed */
+            background-color: rgba(255, 255, 255, 0); /* Adjust the background color and opacity as needed */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #01bde3;
+        }
+
+        p{
+            font-size: 20px;
+            color: white;
+        }
+
+        input{
+            padding: 5px;
+        }
+
+        #btnSum{
+            padding: 5px;
+            margin: 3px;
+            border-radius: 2px;
+            border: 2px solid rgb(169, 238, 9);
+        }
+
+        #result {
+            padding-left: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+            font-weight: 600;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function render(){
+            // prompt("Hi")
+            
+            let valA = parseInt(document.getElementById("valA").value)
+            //Remember to always use ""
+            let valB = parseInt(document.getElementById("valB").value)
+
+            let result = document.getElementById("result")
+
+
+            let response = fetch("https://sum-server-34x5.onrender.com/sum?"+"a="+valA+"&"+"b="+valB) 
+            .then((data) => {
+                data.text()
+                .then((res) => {
+                    result.innerHTML = res 
+                    // REMEMBER: Not to re-use var names.
+                })
+            })
+            
+            // console.log(response)
+                        
+            /**
+             * This line will not work and will always return a promise since, fetch always return a promise
+             * and it's also an async operation and as we know async things happen in the end so, first it will show the promise and only
+             * the value if you assign the value inside the last resolve .then()
+             *
+             * */
+        }
+
+        
+    </script>
+
+    <div class="form">
+    <p><b>Basic DOM and Fetch Sum</b></p>
+    <br>
+    <input type="text" placeholder="Value for a" id="valA"><br>
+    <br>
+    <input type="text" placeholder="Value for b" id="valB"><br>
+    <br>
+    <button onclick="render()" id="btnSum">Calc Sum</button> 
+    <span id="result"></span>
+    </div>
+    
+</body>
+</html>
